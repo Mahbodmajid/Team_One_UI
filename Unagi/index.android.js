@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {AppRegistry, StyleSheet, Text, View, ScrollView} from 'react-native';
 import PostItem from './js/PostItem'
+import ActionButton from 'react-native-action-button';
+import { StackNavigator } from 'react-navigation';
+import PostScreen from './postScreen'
+
 
 // ----TEMP GUID GENERATOR
 function guid() {
@@ -14,7 +18,11 @@ function guid() {
 }
 // --------
 
-export default class Unagi extends Component {
+export default class HomeScreen extends Component {
+static navigationOptions = {
+    title: 'Unagi',
+    headerTintColor: 'blue',
+  };
 
   constructor(props) {
     super(props)
@@ -54,6 +62,7 @@ export default class Unagi extends Component {
   }
 
   render() {
+          const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -66,24 +75,25 @@ export default class Unagi extends Component {
           ))}
           </View>
         </ScrollView>
+        <ActionButton
+          buttonColor="rgba(126,126,126,1)"
+          onPress={() =>  navigate('Post')}/>
       </View>
     );
   }
 }
+
+const Unagi = StackNavigator({
+  Home: { screen: HomeScreen },
+  Post: { screen: PostScreen },
+});
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF'
   },
-  appActionBar: {
-    backgroundColor: '#8BC34A',
-    flexDirection: 'column'
-  },
-  appActionBarTitle: {
-    color: 'white',
-    textAlign: 'right',
-  }
 });
 
 AppRegistry.registerComponent('Unagi', () => Unagi);
