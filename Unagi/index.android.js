@@ -5,7 +5,7 @@ import ActionButton from 'react-native-action-button';
 import { StackNavigator } from 'react-navigation';
 import PostScreen from './js/PostScreen'
 // require('./js/Authorization')
-require('./js/RequestHandler')
+// require('./js/RequestHandler')
 
 const styles = StyleSheet.create({
   container: {
