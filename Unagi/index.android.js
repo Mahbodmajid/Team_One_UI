@@ -4,7 +4,22 @@ import PostItem from './js/PostItem'
 import ActionButton from 'react-native-action-button';
 import { StackNavigator } from 'react-navigation';
 import PostScreen from './js/PostScreen'
-require('./js/Authorization')
+// require('./js/Authorization')
+require('./js/RequestHandler')
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF'
+  },
+  toolbarTitle: {
+    color: 'white'
+  },
+  toolbar: {
+    backgroundColor: '#8BC34A',
+  }
+
+});
 
 // ----TEMP GUID GENERATOR
 function guid() {
@@ -22,13 +37,12 @@ export default class HomeScreen extends Component {
 static navigationOptions = {
     title: 'اوناگی',
     headerTintColor: 'white',
-    headerStyle: {},
-    headerTitleStyle: {},
+    headerStyle: StyleSheet.flatten(styles.toolbar),
+    headerTitleStyle: StyleSheet.flatten(styles.toolbarTitle),
   };
 
   constructor(props) {
     super(props)
-    console.log("TOOLBAR", styles.toolbar)
     this.state = {
       posts: [
         {
@@ -88,22 +102,6 @@ static navigationOptions = {
 const Unagi = StackNavigator({
   Home: { screen: HomeScreen },
   Post: { screen: PostScreen },
-});
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF'
-  },
-  toolbarTitle: {
-    color: 'white'
-  },
-  toolbar: {
-    backgroundColor: '#8BC34A',
-
-  }
-
 });
 
 AppRegistry.registerComponent('Unagi', () => Unagi);
