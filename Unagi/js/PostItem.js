@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
             textAlign: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            fontSize: 20,
+            fontSize: 18,
         }
     });

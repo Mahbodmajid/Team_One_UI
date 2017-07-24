@@ -24,7 +24,7 @@ export default class Unagi extends Component {
       posts: [
         {
           key: guid(),
-          postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد"
+          postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد این یک پست است. این یک پست است. این یک پست است"
         }, {
           key: guid(),
           postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد"
