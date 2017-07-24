@@ -5,30 +5,35 @@
  */
 
 import React, {Component} from 'react';
-import {AppRegistry, StyleSheet, Text, View, ToolbarAndroid} from 'react-native';
-import NavigationBar from 'react-native-navbar';
+import {AppRegistry, StyleSheet, Text, View, ToolbarAndroid, } from 'react-native';
+import ActionButton from 'react-native-action-button';
+import { StackNavigator } from 'react-navigation';
+import PostScreen from './postScreen'
 
-export default class Unagi extends Component {
+class HomeScreen extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      barTitle: "اوناگی"
-    }
-  }
-
-
+    static navigationOptions = {
+    title: 'Unagi',
+    headerTintColor: 'blue',
+  };
   render() {
+          const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-         <NavigationBar
-          style={styles.appActionBar}
-          title={{title: this.state.barTitle, style: styles.appActionBarTitle}} /> 
-
+        
+        <ActionButton
+          buttonColor="rgba(126,126,126,1)"
+          onPress={() =>  navigate('Post')}/>
       </View>
     );
   }
 }
+
+const Unagi = StackNavigator({
+  Home: { screen: HomeScreen },
+  Post: { screen: PostScreen },
+});
+
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +46,16 @@ const styles = StyleSheet.create({
   },
   appActionBarTitle: {
     color: 'white'
-  }
+  },
+    FAB:{
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: '#ee6e73',
+        position: 'absolute',
+        bottom: 10,
+        right: 10, 
+    }
 });
 
 AppRegistry.registerComponent('Unagi', () => Unagi);
