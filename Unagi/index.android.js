@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {AppRegistry, StyleSheet, Text, View, ScrollView} from 'react-native';
-import NavigationBar from 'react-native-navbar';
 import PostItem from './js/PostItem'
 
 // ----TEMP GUID GENERATOR
@@ -30,7 +29,7 @@ export default class Unagi extends Component {
           postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد"
         }, {
           key: guid(),
-          postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد"
+          postText: "salam salam salam salam jnjni uj uhijnji ujjinl kjojl"
         }, {
           key: guid(),
           postText: "آدم های اطراف تقلبی اند. پیتزاست که حقیقت دارد"
@@ -57,19 +56,15 @@ export default class Unagi extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <NavigationBar
-          style={styles.appActionBar}
-          title={{
-          title: this.state.barTitle,
-          style: styles.appActionBarTitle
-        }}/>
         <ScrollView>
+          <View style={{margin: 8}}>
           {this.state.posts.map(post => (
             <PostItem
               key={post.key}
               postText={post.postText}
             />
           ))}
+          </View>
         </ScrollView>
       </View>
     );

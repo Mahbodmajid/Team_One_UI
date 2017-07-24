@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
         postText: {
             marginTop: 8,
             marginBottom: 8,
-            marginLeft: 4,
-            marginRight: 4,
+            marginLeft: 8,
+            marginRight: 8,
             color: '#212121',
-            textAlign: 'center',
+            // textAlign: 'right',
             flexDirection: 'column',
             alignItems: 'center',
             fontSize: 18,
