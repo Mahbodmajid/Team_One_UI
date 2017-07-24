@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AppRegistry, StyleSheet, Text, View, ToolbarAndroid, } from 'react-native';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 let myNewTextColor = 'forestgreen';

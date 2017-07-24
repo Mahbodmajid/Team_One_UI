@@ -3,8 +3,8 @@ import {AppRegistry, StyleSheet, Text, View, ScrollView} from 'react-native';
 import PostItem from './js/PostItem'
 import ActionButton from 'react-native-action-button';
 import { StackNavigator } from 'react-navigation';
-import PostScreen from './postScreen'
-
+import PostScreen from './js/PostScreen'
+require('./js/Authorization')
 
 // ----TEMP GUID GENERATOR
 function guid() {
@@ -20,14 +20,16 @@ function guid() {
 
 export default class HomeScreen extends Component {
 static navigationOptions = {
-    title: 'Unagi',
-    headerTintColor: 'blue',
+    title: 'اوناگی',
+    headerTintColor: 'white',
+    headerStyle: {},
+    headerTitleStyle: {},
   };
 
   constructor(props) {
     super(props)
+    console.log("TOOLBAR", styles.toolbar)
     this.state = {
-      barTitle: "اوناگی",
       posts: [
         {
           key: guid(),
@@ -94,6 +96,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF'
   },
+  toolbarTitle: {
+    color: 'white'
+  },
+  toolbar: {
+    backgroundColor: '#8BC34A',
+
+  }
+
 });
 
 AppRegistry.registerComponent('Unagi', () => Unagi);
